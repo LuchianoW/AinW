@@ -64,6 +64,5 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'pg' # PostgreSQL
 gem 'rails_12factor' # 如果你使用 Rails 5 或以下版本（Render 推荐）
 
