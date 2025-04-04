@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post</title>
+  <%= stylesheet_link_tag 'post', media: 'all' %>
+  <!-- <link rel="icon" href="AinW.ico" type="images/AinW_logo"> -->
+</head>
+
+<body style="background-image: url('<%= asset_path('bg0.jpg') %>');">
+  <div class="form-container">
+    <div class="back-to-home">
+      <%= link_to "Back to Home", home_path, class: "btn btn-secondary" %>
+    </div>
+
+    <%= form_with model: @post, url: posts_path, method: :post, local: true do |f| %>
+      <div class="form-group">
+        <label for="animal_id">Animal:</label>
+        <%= f.select :animal_id, options_from_collection_for_select(Animal.all, :id, :name), { prompt: "Select an animal" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :location_id, "Location" %>
+        <%= f.select :location_id, options_from_collection_for_select(@locations, :id, :range), { prompt: "Select a location" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_area :post_content, rows: 5, placeholder: "Describe the sighting..." %>
+      </div>
+
+      <%= f.submit "Post", onclick: "alert('Posted!'); return true;" %>
+    <% end %>
+  </div>
+</body>
+</html>

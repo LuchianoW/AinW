@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @user.username %>'s Page</title>
+  <%= stylesheet_link_tag 'user_page', media: 'all' %>
+</head>
+<body>
+  <div class="title"><h1><%= @user.username %>'s Posts</h1></div>
+
+  <div class="account">
+    <div class="profile_container">
+      <div class="profile_pic" style="background-image: url('<%= asset_path('profile.png') %>');"></div>
+    </div>
+    <div class="account_info">
+      <div class="name"><p id="username"><%= @user.username %></p></div>
+      <div class="info">
+        <div class="info_num"><p>Post: <%= @user.post_count %></p></div>
+        <div class="info_num"><p>Insights: <%= @user.ani_sighting_num %></p></div>
+      </div>
+    </div>
+    <div class="func"><%= link_to "< Back", home_path, class: "func_buttons_1" %></div>
+  </div>
+
+  <div class="post_container">
+    <div class="sub_title"><p>Posts</p></div>
+    <% @posts.each do |post| %>
+      <div class="post_box">
+        <div class="post_user">
+          <img src="<%= asset_path('profile.png') %>" alt="<%= @user.username %>"/>
+          <p class="post_name"><%= @user.username %></p>
+        </div>
+
+        <div class="post_content">
+          <p><%= post.post_content %></p>
+        </div>
+        <div class="post_info">
+          <div class="post_info_box_0">
+          <p><%= post.animal.name %></p> <!-- 显示该帖子的动物名称 -->
+          </div>
+
+          <div class="post_info_box_1">
+          <p><%= post.location.range %></p> <!-- 显示该帖子的位置信息 -->
+          </div>
+        </div>
+        <div class="post_time">
+          <p><%= post.date.present? ? post.date.strftime('%Y.%m.%d %H:%M:%S') : "No date available" %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <%= stylesheet_link_tag 'signups', media: 'all' %>
+</head>
+<body>
+  <div class="login_box">
+    <div class="back">
+      <%= link_to ' <', login_path, class: 'back' %>
+    </div>
+    <div class="title">
+      <h1>Animals In Westdale</h1>
+    </div>
+    <div class="signup_form">
+      <%= form_with(model: @user, url: signup_path, method: 'post', local: true, html: { id: 'signup_form' }) do |form| %>
+        <%= form.text_field :username, placeholder: 'Username', id: 'User', required: true %>
+        <%= form.password_field :password, placeholder: 'Password', id: 'Password', required: true %>
+        <%= form.password_field :password_confirmation, placeholder: 'Confirm Password', required: true %> <!-- password confirmation field -->
+        <%= form.submit 'Sign Up', class: 'button' %> <!-- submit button -->
+      <% end %>
+    </div>
+    <div class="buttons">
+      <button id="signup" class="button" type="submit" onclick="document.getElementById('signup_form').submit();">Sign Up</button>
+    </div>
+    <div class="copyright">
+      <p>© 2025 Luchiano Wang. All rights reserved.</p>
+    </div>
+  </div>
+
+  <% if flash[:alert] %>
+    <script>alert("<%= flash[:alert] %>");</script>
+  <% end %>
+</body>
+</html>

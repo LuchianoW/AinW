@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animals in Westdale</title>
+  <%= stylesheet_link_tag 'home', media: 'all' %>
+</head>
+<body>
+  <div class="title"><h1>Animals in Westdale</h1></div>
+
+  <!-- 用户信息显示 -->
+  <div class="account">
+    <div class="profile_container">
+      <div class="profile_pic" style="background-image: url('<%= asset_path('profile.png') %>');"></div>
+    </div>
+    <div class="account_info">
+      <div class="name"><p id="username"><%= current_user.username %></p></div>
+      <div class="info">
+        <div class="info_num"><p>Post: <%= current_user.post_count %></p></div>
+        <div class="info_num"><p>Insights: <%= current_user.ani_sighting_num %></p></div>
+      </div>
+    </div>
+    <div class="func">
+      <%= link_to "Log Out", login_path, class: "func_buttons_0" %>
+      <%= link_to "Post +", new_post_path, class: "func_buttons_1" %>
+    </div>
+  </div>
+
+  <!-- 动物列表 -->
+  <div class="main_box">
+    <div class="animals_container">
+      <div class="sub_title"><p>Animals</p></div>
+      <% @animals.each do |animal| %>
+        <div class="animals_box">
+          <div class="animals_title">
+            <div class="animals_pic_box">
+              <img src="<%= asset_path("#{animal.category}.png") %>" alt="<%= animal.name %>"/>
+            </div>
+            <div class="animals_intro">
+              <p id="ani_name"><%= animal.name %></p>
+              <p id="ani_category"><%= animal.category %></p>
+            </div>
+          </div>
+          <div class="animals_info">
+              <p id="ani_range">Range: 
+                <% # 获取动物出现的地点（Location） %>
+                <% locations = animal.posts.includes(:location).map(&:location).uniq %>
+                <% locations.each do |location| %>
+                  <%= location.range %> 
+                <% end %>
+              </p>
+            </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- 帖子列表 -->
+    <div class="post_container">
+      <div class="sub_title"><p>Posts</p></div>
+      <% @posts.each do |post| %>
+        <div class="post_box">
+          <div class="post_user">
+            <img src="<%= asset_path('profile.png') %>" alt="<%= post.user.username %>"/>
+            <%= link_to post.user.username, user_page_path(post.user), class: "post_name" %>
+          </div>
+
+          <div class="post_content">
+            <p><%= post.post_content %></p>
+          </div>
+
+          <div class="post_info">
+            <div class="post_info_box_0">
+            <p><%= post.animal.name %></p> <!-- 显示该帖子的动物名称 -->
+          </div>
+
+          <div class="post_info_box_1">
+            <p><%= post.location.range %></p> <!-- 显示该帖子的位置信息 -->
+          </div>
+
+          </div>
+
+          <div class="post_time">
+            <p><%= post.date.present? ? post.date.strftime('%Y.%m.%d %H:%M:%S') : "No date available" %></p>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</body>
+</html>
+
+
+<%# User.pluck(:id, :username, :post_count, :animal_encounter_count) %>
+
+<%# <% animals = [
+  { name: "Kiki", range: "Barclay St", sightings_count: 2, category: "Cat" },
+  { name: "Whiskers", range: "King St", sightings_count: 5, category: "Cat" },
+  { name: "Bella", range: "Main St", sightings_count: 3, category: "Dog" },
+  { name: "Charlie", range: "Queen St", sightings_count: 4, category: "Dog" },
+  { name: "Luna", range: "York St", sightings_count: 6, category: "Cat" },
+  { name: "Max", range: "Dundurn St", sightings_count: 1, category: "Dog" },
+  { name: "Simba", range: "Hess St", sightings_count: 7, category: "Cat" },
+  { name: "Oliver", range: "Locke St", sightings_count: 8, category: "Dog" },
+  { name: "Milo", range: "Cannon St", sightings_count: 2, category: "Cat" },
+  { name: "Shadow", range: "James St", sightings_count: 9, category: "Dog" }
+]
+
+animals.each do |animal|
+  Animal.create(animal)
+end %>
+
+<%# rails generate model User username:string:uniq post_count:integer ani_sighting_num:integer
+rails generate model Animal name:string category:string
+rails generate model Post user:references animal_name:string range:string post_content:text date:datetime
+rails generate model Location range:string animal:references %>

@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Cute';  /* 定义一个字体名称 */
+    src: url('Cute-Bold.otf') format('opentype');  /* 指定字体文件路径 */
+}
+
+@font-face {
+    font-family: 'Exo';  /* 定义一个字体名称 */
+    src: url('Exo-Regular.otf') format('opentype');  /* 指定字体文件路径 */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/bg0.jpg');
+    background-size: cover;  /* Makes the background image cover the entire screen */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;
+    font-family: Exo;
+}
+.form-container {
+    height: 35%;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+}
+.form-group {
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+
+label
+{
+    padding-top: 7px;
+    font-weight: bold;
+    color: #79655b;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#content
+{
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #79655b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #79594a;
+}
+
+.back-to-home
+{
+    padding-bottom: 10px;
+    color: #79594a;
+}

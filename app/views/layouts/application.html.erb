@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AnimalinWestdale</title>
+    <%= csrf_meta_tags %> <!-- 用于 CSRF 安全性 -->
+    <%= csp_meta_tag %> <!-- 内容安全策略 -->
+    <%= javascript_include_tag 'application' %> <!-- 引入 application.js 文件 -->
+    <%= stylesheet_link_tag 'application', media: 'all' %> <!-- 引入 CSS 样式 -->
+  </head>
+
+  <body>
+    <%= yield %>  <!-- 这里会渲染各个视图的内容 -->
+  </body>
+</html>
+

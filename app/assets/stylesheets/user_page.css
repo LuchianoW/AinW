@@ -1,0 +1,301 @@
+@font-face {
+    font-family: 'Cute';  /* 定义一个字体名称 */
+    src: url('Cute-Bold.otf') format('opentype');  /* 指定字体文件路径 */
+}
+
+@font-face {
+    font-family: 'Exo';  /* 定义一个字体名称 */
+    src: url('Exo-Regular.otf') format('opentype');  /* 指定字体文件路径 */
+}
+
+body {
+    background-image: url('bg_home.jpg');  /* Path to your image */
+    background-size: cover;  /* Makes the background image cover the entire screen */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    height: auto;  /* 使 body 高度为 100% 视口高度 */
+    margin: 0;  /* 移除默认的 body 外边距 */
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    /*justify-items: center;*/
+}
+
+.title
+{
+    height: 100px;
+    width: 100%;
+    /*background-color: aqua;*/
+    font-family: 'Cute';
+    font-size: 35px;
+    color: #79655b;
+}
+
+.title h1
+{
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 10%;
+}
+
+.account
+{
+    height: 200px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: border-box;
+    border: rgba(121, 101, 91, 0.5) 4px solid;
+    border-radius: 15px;
+    display: flex;
+}
+
+.profile_container {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_pic {
+    width: 170px;  /* 让它占满容器 */
+    height: 170px; /* 保持与父容器相同 */
+    background-image: url('../images/Lu0.png'); /* 替换为你的图片路径 */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; /* 让它变成圆形 */
+    /*border: 5px solid #fff; !* 加边框 *!*/
+}
+
+
+.account_info
+{
+    height: 200px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.name
+{
+    height: 100px;
+    width: 100%;
+}
+
+.name p
+{
+    font-family: 'Cute';
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 50px;
+    color: #79655b;
+}
+
+.info
+{
+    height: 40%;
+    width: 100%;
+    display: flex;
+}
+
+.info_num
+{
+    width: 50%;
+}
+
+.info_num p
+{
+    font-family: 'Cute';
+    font-size: 35px;
+    color: #646464;
+    margin-top: 10px;
+}
+
+.func
+{
+    width: 30%;
+    display: flex;
+    flex-flow: column;
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+.func_buttons_1
+{
+    background-color: #79655b;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: Exo;
+    color: white;
+    width: 80%;
+    height: 60px;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+
+
+.sub_title
+{
+    height: auto;
+    width: 100%;
+    text-align: left;
+    display: flex;
+}
+
+.sub_title p
+{
+    font-family: 'Cute';
+    font-size: 40px;
+    color: #79655b;
+    padding-left: 10%;
+    margin: 0;
+}
+
+.sub_title img
+{
+    padding-left: 10px;
+    padding-top: 5px;
+    height: 30px;
+    width: 30px;
+}
+
+
+.post_container
+{
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: border-box;
+    border: rgba(121, 101, 91, 0.5) 4px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.post_box
+{
+    height: auto;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: border-box;
+    border: rgba(255, 255, 255, 0.8) 1px solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  /* 阴影 */
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column;
+    padding: 15px;
+}
+
+.post_user
+{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.post_user img
+{
+    width: 80px;  /* 让它占满容器 */
+    height: 80px; /* 保持与父容器相同 */
+    border-radius: 50%; /* 使图片变圆 */
+    border: 1px solid rgba(121, 101, 91, 0.5); /* 给图片添加边框 */
+    object-fit: cover;
+}
+
+.post_name
+{
+    font-family: 'Cute';
+    color: #79655b;
+    font-size: 40px;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.post_content
+{
+    height: auto;
+    /*background-color: #f3edd1;*/
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.post_content p
+{
+    margin: 0;
+    font-family: Arial;
+    font-style: italic;
+}
+
+.post_info
+{
+    height: 30px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.post_info_box_0
+{
+    height: 30px;
+    width: auto;
+    background-color: #79655b;
+    padding: 0 5px;
+    border-radius: 15px;
+    margin-right: 15px;
+}
+
+.post_info_box_1
+{
+    height: 30px;
+    width: auto;
+    background-color: #6b6b6b;
+    padding: 0 10px;
+    border-radius: 15px;
+    margin-right: 15px;
+}
+
+
+
+.post_info_box_0 p
+{
+    font-family: 'Exo';
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.post_info_box_1 p
+{
+    font-family: 'Exo';
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.post_time
+{
+    height: 20px;
+}
+
+.post_time p
+{
+    padding-top: 5px;
+    margin: 0;
+    font-family: Exo;
+    font-size: 14px;
+    color: #6e6e6e;
+    text-align: right;
+}
+

@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'Cute';
+    src: url('Cute-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url('bg0.jpg'); /* Path to your image */
+    background-size: cover;  /* Makes the background image cover the entire screen */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    height: 100vh;  /* 使 body 高度为 100% 视口高度 */
+    margin: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_box {
+    height: 50%;
+    width: 40%;
+    background-color: rgba(250, 250, 250, 0.91);
+    border-radius: 15px;
+    border: #ffffff 2px solid;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.back{
+    width: 100%;
+    height: 5%;
+}
+
+.title {
+    width: 80%;
+    height: 25%;
+    text-align: center;
+    color: rgba(121, 101, 91, 0.89);
+    font-family: Cute;
+    font-size: 23px;
+    /*background-color: cornflowerblue;*/
+}
+
+.title h1 {
+    padding-bottom: 20px;
+}
+
+.signup_form{
+    width: 80%;
+    height: 40%;
+    text-align: center;
+}
+
+form
+{
+    width: 100%;
+    height: 100%;
+}
+
+input
+{
+    height: 20%;
+    width: 95%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    color: rgba(121, 101, 91, 0.89);
+    display: inline-block;
+    padding-left: 10px;
+    font-family: Cute;
+    font-size: 120%;
+    font-style: italic;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    margin-bottom: 2%;
+}
+
+input:hover
+{
+    border: 2px solid rgba(121, 101, 91, 0.89);
+}
+
+input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(121, 101, 91, 0.57);
+}
+
+.buttons
+{
+    width: 60%;
+    height: 15%;
+    text-align: center;
+}
+
+#signup {
+    height: 40px;
+    width: 80%;
+    box-sizing: border-box;
+    border: 2px solid rgba(121, 101, 91, 0.89);
+    border-radius: 5px;
+    color:rgba(121, 101, 91, 0.89);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.25);
+    font-family: Cute;
+    font-size: 22px;
+}
+
+#signup:hover{
+    border: 2px solid rgba(121, 101, 91, 1);
+    color:rgba(121, 101, 91, 1);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+.copyright{
+    width: 80%;
+    height: 5%;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.copyright p
+{
+    font-family: Cute;
+    color: rgba(121, 101, 91, 0.89);
+    font-size: 15px;
+}
